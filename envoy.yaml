@@ -24,19 +24,19 @@ static_resources:
                     google_re2: {}
                     regex: ".*"
                 allow_methods: "GET, PUT, DELETE, POST, OPTIONS"
-                allow_headers: "keep-alive,user-agent,x-requested-with,if-modified-since,cache-control,content-type,authorization,grpc-timeout"
+                allow_headers: "keep-alive,user-agent,x-requested-with,if-modified-since,cache-control,content-type,authorization,grpc-timeout,x-user-agent,x-grpc-web,key"
                 expose_headers: "custom-header1,grpc-status,grpc-message"
                 max_age: "1728000"
           http_filters:
+          - name: envoy.filters.http.cors
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.filters.http.cors.v3.Cors
           - name: envoy.filters.http.grpc_http1_bridge
             typed_config:
               "@type": type.googleapis.com/envoy.extensions.filters.http.grpc_http1_bridge.v3.Config
           - name: envoy.filters.http.grpc_web
             typed_config:
               "@type": type.googleapis.com/envoy.extensions.filters.http.grpc_web.v3.GrpcWeb
-          - name: envoy.filters.http.cors
-            typed_config:
-              "@type": type.googleapis.com/envoy.extensions.filters.http.cors.v3.Cors
           - name: envoy.filters.http.router
             typed_config:
               "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
