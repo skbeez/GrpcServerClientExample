@@ -1,9 +1,17 @@
 from concurrent import futures
 import time
+import os
+import sys
 
 import grpc
-import greet_pb2
-import greet_pb2_grpc
+
+# Add the protobufs module directory to sys.path
+parent_dir = os.path.dirname(os.path.abspath(__file__))
+protobuf_dir = os.path.join(parent_dir, 'protobufs')
+sys.path.append(protobuf_dir)
+
+from protobufs import greet_pb2
+from protobufs import greet_pb2_grpc
 
 class GreeterServicer(greet_pb2_grpc.GreeterServicer):
     def SayHello(self, request, context):

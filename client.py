@@ -1,7 +1,15 @@
-import greet_pb2_grpc
-import greet_pb2
 import time
 import grpc
+import os
+import sys
+
+# Add the protobufs module directory to sys.path
+parent_dir = os.path.dirname(os.path.abspath(__file__))
+protobuf_dir = os.path.join(parent_dir, 'protobufs')
+sys.path.append(protobuf_dir)
+
+from protobufs import greet_pb2
+from protobufs import greet_pb2_grpc
 
 def get_client_stream_requests():
     while True:
