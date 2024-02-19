@@ -1,5 +1,5 @@
 # GrpcServerClientExample
-Python implementation of a Graph Server and Client
+Python implementation of a Graph Server and Client (based on this [repo](https://github.com/chelseafarley/PythonGrpc/tree/main)) with an Envoy that can interact with gRPC web applications. 
 
 ## Setup
 
