@@ -18,7 +18,18 @@ Generate grpc code based on proto file
 python3 -m grpc_tools.protoc -I protos --python_out=. --grpc_python_out=. protos/greet.proto
 ```
 
-Run the Envoy
+Run the Envoy (The Envoy allows a grpc-web app to communicate with the gRPC server)
 ```
 envoy -c envoy.yaml
 ```
+
+Run the gRPC Server
+```
+python3 server.py
+```
+
+Run the gRPC Client
+```
+python3 client.py
+```
+
