@@ -43,3 +43,14 @@ python3 server.py
 python3 client.py
 ```
 
+### Creating the Web App
+```
+npx create-react-app grpc-web-app
+cd grpc-web-app
+npm install bootstrap react-bootstrap
+npm start
+```
+Add the following line at the top of src/index.js
+```
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
